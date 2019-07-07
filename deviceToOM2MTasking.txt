@@ -1,0 +1,51 @@
+{
+ "Things":{	
+  "name": "Info_Monitor",
+  "description": "CSRSR's sensor",
+  "properties": {
+    "board": "Raspberry pi"
+  }
+ },
+  "Locations": [
+    {
+      "name":"CSRSR",
+      "description": "CSRSR",
+      "encodingType": "application/vnd.geo+json",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          -238.81268978118894,
+          24.967764442216115
+        ]
+      }
+    }
+  ],
+  "TaskingCapabilities":[{
+    "description": "Info_Monitor can show some word on the LCD board",
+    "parameters": [
+      {
+        "parameterID": "text",
+        "description": "Show the words that user enter",
+        "use": "Mandatory",
+        "definition": {
+          "inputType": "String",
+          "unitOfMeasurement": "Status",
+          "allowedValues": [
+            {
+              "description": "String"
+            }
+            
+          ]
+        }
+      }
+    ],
+    "oneM2MProtocol": {
+      "messageBody": "{\"m2m:cin\":{\"con\":\"{text}\"}}"
+    },
+    "Actuator": {
+    	"description": "A controllable LCD board",
+        "encodingType": "application/text",
+        "metadata": "LCD"
+    }
+  }]
+}
